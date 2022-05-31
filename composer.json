@@ -1,0 +1,27 @@
+{
+    "name": "tutor/common",
+    "description": "Tutor common",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hiep Tran",
+            "email": "hieptt@educa.vn"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tutor\\Common\\": "src"
+        },
+        "files": [
+            "helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tutor\\Common\\Providers\\TutorCommonServiceProvider"
+            ]
+        }
+    }
+}
