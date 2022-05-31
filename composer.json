@@ -16,5 +16,13 @@
         "files": [
             "helpers.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tutor\\Common\\Providers\\TutorIdServiceProvider"
+            ]
+        }
     }
+}
 }
