@@ -10,16 +10,16 @@ class TutorCommonServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->app->bind(ClientInterface::class, HttpClient::class);
     }
 
     public function register()
     {
         $this->mergeConfig();
+        $this->app->bind(ClientInterface::class, HttpClient::class);
     }
 
     private function mergeConfig()
     {
-//        $this->mergeConfigFrom(__DIR__ . '/../../config/services.php', 'services');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/tutor_common.php', 'tutor_common');
     }
 }

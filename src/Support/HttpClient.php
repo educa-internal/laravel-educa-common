@@ -8,17 +8,10 @@ class HttpClient extends Client
 {
     public function __construct(array $config = [])
     {
-        if (!isset($config['http_errors'])) {
-            $config['http_errors'] = false;
-        }
-        if (!isset($config['verify'])) {
-            $config['verify'] = false;
-        }
-        if (!isset($config['timeout'])) {
-            $config['timeout'] = 29;
-        }
-        
+        $config['http_errors'] = config('tutor_common.request_http_errors');
+        $config['verify'] = config('tutor_common.request_verify');
+        $config['timeout'] = config('tutor_common.request_timeout');
+
         parent::__construct($config);
     }
-
 }
