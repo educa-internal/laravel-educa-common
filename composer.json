@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tutor\\Common\\Providers\\TutorIdServiceProvider"
+                "Tutor\\Common\\Providers\\TutorCommonServiceProvider"
             ]
         }
     }
