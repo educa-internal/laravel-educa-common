@@ -68,7 +68,7 @@ class PrettyJsonResponder implements PrettyResponder
     /**
      * {@inheritdoc}
      */
-    public function fail($message = 'Unable to process request', $code = 1, array $trace = null, array $headers = [], $httpCode = 503)
+    public function fail($message = 'Unable to process request', $code = 1, array $trace = null, array $headers = [], $httpCode = 500)
     {
         return $this->respond($code, $message, null, $trace, $headers, $httpCode);
     }
