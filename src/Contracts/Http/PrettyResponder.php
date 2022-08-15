@@ -83,7 +83,7 @@ interface PrettyResponder
      * @param int $httpCode
      * @return \Illuminate\Http\Response
      */
-    public function fail($message = 'Unable to process request', $code = 1, array $trace = null, array $headers = [], $httpCode = 503);
+    public function fail($message = 'Unable to process request', $code = 1, array $trace = null, array $headers = [], $httpCode = 500);
 
     /**
      * Return a new response from the application
