@@ -4,7 +4,6 @@ namespace Tutor\Common\Support;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\Middleware;
 use Tutor\Common\Logging\MessageFormatter;
 
