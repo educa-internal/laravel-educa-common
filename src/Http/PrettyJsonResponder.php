@@ -12,7 +12,7 @@ class PrettyJsonResponder implements PrettyResponder
     /**
      * {@inheritdoc}
      */
-    public function unauthorized($message = 'unauthorized', array $headers = [], $code = null)
+    public function unauthorized($message = 'Unauthorized', array $headers = [], $code = null)
     {
         return $this->respond($code, $message, null, null, $headers, 401);
     }
@@ -36,7 +36,7 @@ class PrettyJsonResponder implements PrettyResponder
     /**
      * {@inheritdoc}
      */
-    public function not_found($message = 'Request not found')
+    public function not_found($message = 'Not found')
     {
         return $this->respond(null, $message, null, null, [], 404);
     }
@@ -52,7 +52,7 @@ class PrettyJsonResponder implements PrettyResponder
     /**
      * {@inheritdoc}
      */
-    public function no_content($message = 'Data not found', array $headers = [], $code = 1)
+    public function no_content($message = 'No content', array $headers = [], $code = 1)
     {
         return $this->respond($code, $message, null, null, $headers, 204);
     }
@@ -68,7 +68,7 @@ class PrettyJsonResponder implements PrettyResponder
     /**
      * {@inheritdoc}
      */
-    public function fail($message = 'Unable to process request', $code = 1, array $trace = null, array $headers = [], $httpCode = 500)
+    public function fail($message = 'Fail', $code = 1, array $trace = null, array $headers = [], $httpCode = 500)
     {
         return $this->respond($code, $message, null, $trace, $headers, $httpCode);
     }
