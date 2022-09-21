@@ -32,16 +32,4 @@ class HttpClient extends Client
 
         parent::__construct($config);
     }
-
-    /**
-     * @return \Closure
-     */
-    private function logResponse()
-    {
-        return function (callable $handler) {
-            return function ($request, array $options) use ($handler) {
-                return $this->handle($request, $options, $handler);
-            };
-        };
-    }
 }
