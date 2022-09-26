@@ -59,3 +59,30 @@ if (!function_exists('responder')) {
         return $responder->respond($content, $headers, $code, $status);
     }
 }
+
+if (!function_exists('getMillisecond')) {
+    function getMillisecond()
+    {
+        return round(microtime(true) * 1000);
+    }
+}
+
+if (!function_exists('convertMillisecondToDateTime')) {
+    function convertMillisecondToDateTime($timestamp, $timezone = "Asia/Ho_Chi_Minh")
+    {
+        return \DateTime::createFromFormat('U.u', ($timestamp / 1000))
+            ->setTimezone(timezone_open($timezone))
+            ->format("Y-m-d H:i:s.v");
+    }
+}
+
+if (!function_exists('getClientIp')) {
+    function getClientIp()
+    {
+        $temp = app('request')->getClientIps();
+
+        return end($temp);
+    }
+}
+
+
