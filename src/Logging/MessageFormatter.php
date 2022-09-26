@@ -21,8 +21,8 @@ class MessageFormatter implements MessageFormatterInterface
         $logData = [
             'uri' => strtok($request->getUri(), '?'),
             'method' => $request->getMethod(),
-            'gets' => $this->convertParams($request->getUri()->getQuery()),
-            'posts' => $this->convertParams($request->getBody()->__toString()),
+            'gets' => $request->getUri()->getQuery(),
+            'posts' => $request->getBody()->__toString(),
             'request_headers' => $this->getRequestHeaders($request),
             'response_headers' => $this->getResponseHeaders($response),
             'response_code' => $this->getResponseCode($response),
@@ -34,28 +34,28 @@ class MessageFormatter implements MessageFormatterInterface
         return "[Log Outgoing] " . json_encode($logData, JSON_UNESCAPED_UNICODE);
     }
 
-    private function convertParams($params)
-    {
-        $response = [];
-        if (!strpos($params, '&')) {
-            return null;
-        }
-        $explodeParams = explode('&', $params);
+    // private function convertParams($params)
+    // {
+    //     $response = [];
+    //     if (!strpos($params, '&')) {
+    //         return null;
+    //     }
+    //     $explodeParams = explode('&', $params);
 
-        foreach ($explodeParams as $valueParams) {
-            if (!strpos($valueParams, '=')) {
-                continue;
-            }
-            $explodeValueParams = explode('=', $valueParams);
+    //     foreach ($explodeParams as $valueParams) {
+    //         if (!strpos($valueParams, '=')) {
+    //             continue;
+    //         }
+    //         $explodeValueParams = explode('=', $valueParams);
 
-            $keyParam = $explodeValueParams[0];
-            $valueParam = $explodeValueParams[1];
+    //         $keyParam = $explodeValueParams[0];
+    //         $valueParam = $explodeValueParams[1];
 
-            $response[$keyParam] = urldecode($valueParam);
-        }
+    //         $response[$keyParam] = urldecode($valueParam);
+    //     }
 
-        return $response;
-    }
+    //     return $response;
+    // }
 
     private function getRequestHeaders($request)
     {
