@@ -17,10 +17,12 @@ class LoggingWithTrace
     public function __invoke($logger)
     {
         foreach ($logger->getHandlers() as $handler) {
-            $handler->setFormatter(new LineFormatter(
-                "[%datetime%] %channel% %level_name%: %message% \n%extra%\n%context%\n",
-                "Y-m-d H:i:s.u"
-            ));
+            if (config('tutor_logging.log_with_milliseconds')) {
+                $handler->setFormatter(new LineFormatter(
+                    null,
+                    "Y-m-d H:i:s.u"
+                ));
+            }
             $handler->pushProcessor(new IntrospectionProcessor(Logger::DEBUG, ['Illuminate']));
         }
     }
