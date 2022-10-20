@@ -70,9 +70,8 @@ if (!function_exists('getMillisecond')) {
 if (!function_exists('convertMillisecondToDateTime')) {
     function convertMillisecondToDateTime($timestamp, $timezone = "Asia/Ho_Chi_Minh")
     {
-        return \DateTime::createFromFormat('U.u', ($timestamp / 1000))
-            ->setTimezone(timezone_open($timezone))
-            ->format("Y-m-d H:i:s.v");
+        $seconds = $timestamp / 1000;
+        return date("Y-m-d H:i:s.v", $seconds);
     }
 }
 
